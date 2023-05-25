@@ -65,17 +65,13 @@ underlying set of the body of \(X\).
 There is a small but important generalization to this notion. Let \(D \subset
 \mathcal{C}\) be a diagram. Then we can define the \(D\)-points of a presheaf
 \(F\) to be the colimit of the diagram in set:
-\[F(D) = \varprojlim_{C \in D} F(C).\]
+\[F(D) = \varinjlim_{C \in D} F(C).\]
 One can check that this extends to a functor from the presheaves on
-\(\mathcal{C}\) to \(\mathfrak{Set}\). Note that if the limit of the diagram
-exists in \(\mathcal{C}\) then we can replace the diagram with the limit for
-all intents and purposes. By working with an ind-representable object we allow
+\(\mathcal{C}\) to \(\mathfrak{Set}\). Note that if the colimit of the diagram
+exists in \(\mathcal{C}\) then we can replace the diagram with the colimit for
+all intents and purposes. By working with an proj-representable object we allow
 spaces that may be too big to fit into the original category (as we will see
 below).
-<br/><br/>
-For example consider the diagram in \(\mathfrak{Vect}\), \(A, B: V \rightrightarrows
-W\). Then for a vector space \(U\) we have that the \(D\)-points are isomorphic
-to \(\text{Hom}(W / \text{im}(A - B), U)\)
 </p>
 
 <h4>Concrete categories and points</h4>
@@ -91,7 +87,7 @@ what sets are and so can easily get intuition about such objects <a
 id="rfootnote-1" href="#footnote-1">[1]</a>.
 <br/><br/>
 Let us take a step back and think about what relationship this has to the
-functor of points as described above which is a ind-representable
+functor of points as described above which is a proj-representable
 forgetful functor. We start by looking at some examples: For topological spaces we have a
 terminal object, the singleton \( * \), and we can describe the forgetful 
 functor as the \( * \)-points of a space. For groups we do have a terminal 
@@ -104,7 +100,7 @@ What these examples show us is that to get a good notion of the underlying set
 of an object in a category it is not (necessarily) useful to consider what we
 may think of as "natural" forgetful functors (e.g. the body of a supermanifold)
 but instead we should look for representable functors that are concrete (and in
-fact ind versions). To formalize this we shall say that a diagram \(T\) is
+fact proj versions). To formalize this we shall say that a diagram \(T\) is
 a <i>point</i> of \(\mathcal{C}\) if the functor of \(T\)-points is concrete
 <a id="rfootnote-2" href="#footnote-2">[2]</a>:
 \[\text{Hom}_ \mathfrak{C}(X, Y) \subset \text{Hom}_ \mathfrak{Set}(X(T),Y(T)).\]
@@ -125,13 +121,12 @@ of \(\mathcal{C}\) we do have a natural embedding:</i>
 <br/>
 <div style="border-left-style:solid;padding-left:5px;">
 Let \(f: S \times X \rightarrow Y \in \text{Hom}(S, \underline{\text{Hom}}(X, Y))\).
-Then define the function \(f_ * \) by \(f_ * (s:P \rightarrow S)_ {P \in T} = (f \circ (s \times 1_X): P \times X \rightarrow Y)_ {P \in T}.\)
+Then define the function \(f_ * \) by \(f_ * [s:P \rightarrow S] = [f \circ (s \times 1_X): P \times X \rightarrow Y].\)
 We claim that this is injective. Given \(f \neq g \in \text{Hom}(S,
 \underline{\text{Hom}}(X, Y))\) as \(T\) is a point we can find some
-\((s \times x: P \rightarrow S \times X)_ {P \in T} \in (S \times X)(T)\) that seperates the two
-functions. Then \(f_ * (s)_ {P \in T} \neq g_ * (s)_ {P \in T}\) which we can see by composing them
-with \( (1_S \times x)_ {P \in T}\) where we have used that \((S \times X)(T) \cong S(T)
-\times X(T)\).
+\([s \times x: P \rightarrow S \times X] \in (S \times X)(T)\) that seperates the two
+functions. Then \(f_ * [s] \neq g_ * [s]\) which we can see by composing with 
+\( 1_P \times x: P \rightarrow P \times X \).
 </div>
 <br/><br/>
 Note that we clearly have an embedding
@@ -150,10 +145,11 @@ classes given by \(\{ \mathbb{R}^{0|n}\}_ {n\in\mathbb{N}}\). This is a natural
 starting point for us to consider in constructing a point for
 \(\text{SMan}\). We would rather have a connected point so we define \(T\) by
 the diagram
-\[T := \hspace{5mm} \{ \mathbb{R}^{0|0} \rightarrow \cdots \rightarrow \mathbb{R}^{0|n} \rightarrow
-\mathbb{R}^{0|n+1} \rightarrow \cdots  \}\]
-where the maps are given by the natural surjections \(\mathbb{R}[\eta_1,
-\ldots, \eta_{n}] \rightarrow \mathbb{R}[\eta_1, \ldots, \eta_ {n-1}]\). 
+\[T := \hspace{5mm} \{ \cdots \longrightarrow \mathbb{R}^{0|k+1}
+\longrightarrow \mathbb{R}^{0|k} \longrightarrow \cdots \longrightarrow
+ \mathbb{R}^{0|0} \}\]
+where the maps are given by the natural injections \(\mathbb{R}[\eta_1,
+\ldots, \eta_{k}] \rightarrow \mathbb{R}[\eta_1, \ldots, \eta_ {k + 1}]\). 
 
 <br/><br/>
 <b>Claim: </b><i>\(T\) is a point for \(\text{SMan}\).</i>
@@ -165,7 +161,7 @@ Conversely assume that \(f\) and \(g\) induce the same map on the topological
 spaces \(X_0 \rightarrow Y_0\). Then as they are different we can find an \(x_0
 \in X_0\) such that the maps of local algebras \(C^\infty_{Y, f_0(x_0)}
 \rightarrow C^\infty_{X, x_0}\), \(f^{\#}_ {x_0}, g^{\#}_ {x_0}\) are
-different. We now take local coordinates of \(X\) and $Y$ about \(x_0\) and
+different. We now take local coordinates of \(X\) and \(Y\) about \(x_0\) and
 \(f_0(x_0)\) so that we can describe the maps as functions on the local
 algebras: \(C^\infty_{\mathbb{R}^{n|m}, 0} \rightarrow
 C^\infty_{\mathbb{R}^{p|q}, 0}\). Now we Taylor expand the odd coefficients and
@@ -183,8 +179,7 @@ these functions are different at \(t_0\). Then the point
 odd coordinates and sends the singleton to \(t_0\) on the bodies. We have that \(f\circ x \neq g \circ x\). It follows we
 can find a point \(\mathbb{R}^{0|p} \rightarrow X\) that separates \(f\) and \(g\).
 
-This point induces an element of \(X(T)\) as all the inclusions in \(T\) have
-natural cosections and the result follows.
+This point induces an element of \(X(T)\) and the result follows.
 </div>
 <br/><br/>
 
@@ -199,9 +194,9 @@ down functions between superspaces, for expressing differential equations etc.
 <p>
 To complete this note we want to make reference to the ring of odd constants.
 Note that \(T\) doesn't define an object in \(\text{SMan}\) but it does define
-an ind-object. It is useful to look at the algebra of functions of this space,
-namely it is the projective limit of \(\varprojlim \mathbb{R}[\eta_1, \ldots,
-\eta_n]\). We call this ring \(\Lambda\) which can be though of as a ring
+an proj-object. It is useful to look at the algebra of functions of this space,
+namely it is the inductive limit of \(\varinjlim \mathbb{R}[\eta_1, \ldots,
+\eta_k]\). We call this ring \(\Lambda\) which can be though of as a ring
 containing free odd constants of arbitrary dimension (so we can always choose
 some odd constants from the ring that do not satisfy any finite number of
 equations except for the defining ones). Then when we define any functions 
