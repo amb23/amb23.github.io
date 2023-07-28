@@ -1,0 +1,43 @@
+
+body {
+    font-size: 10pt;
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    color: black;
+
+    background-color: #dfcfbe;
+    
+    padding: 5pt 5pt 5pt 5pt;
+}
+
+footer {
+    text-align: center;
+    margin-top: 25pt;
+}
+
+.home-content {
+    margin-top: 25pt;
+    overflow:auto;
+}
+
+.content-list {
+    padding: 5pt 5pt 5pt 5pt;
+}
+
+a.github {
+    padding-left: 15pt;
+    text-align: right;
+    background-image: url(../images/github-cat.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 15%;
+}
+
+.img-cover {
+    margin-top: 30pt;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    object-fit: cover;
+    display: block;
+}
+

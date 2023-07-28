@@ -1,11 +1,9 @@
-  <header>
-    <div class="flex-container">
-        <div class="flex-child">
-            <h1 class="header">{{ site.title | default: site.github.repository_name }}</h1>
-        </div>
-        <div class="flex-child header-buttons">
+  <header style="display:flex;">
+      <div style="flex:auto;">
+          <h1 class="header">{{ site.title | default: site.github.repository_name }}</h1>
+      </div>
+      <div style="flex:auto;">
           <a class="buttons github" href="{{ site.github.repository_url }}">View On GitHub</a>
-        </div>
-     </div>
+      </div>
   </header>
 
